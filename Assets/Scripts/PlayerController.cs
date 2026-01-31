@@ -1,24 +1,55 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour, Controls.IPlayerActions
 {
-    Vector3 movement;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Vector3 movement { get; private set; }
+    public Rigidbody Rb { get; private set; }
+    private Controls _controls;
+    public static Action PlayerJumpAction; 
+    public static Action PlayerSprintAction;
+    public static Action PlayerCrouchAction;
+
+    public static Action<float> PlayerMaskAction;
+
+    private void Awake()
     {
-        
+        _controls = new Controls();
+        _controls.Player.Move.performed += OnMove;
+        _controls.Player.Move.canceled += OnMove;
+        _controls.Player.Jump.performed += OnJump;
+        _controls.Player.Sprint.performed += OnSprint;
+        _controls.Player.Sprint.canceled += OnSprint;
+        _controls.Player.Crouch.performed += OnCrouch;
+        _controls.Player.Crouch.canceled += OnCrouch;
+        _controls.Player.Mask.performed += OnMask;
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+        Rb = GetComponent<Rigidbody>();
+        OnEnablePlayer();
+    }
+
     void Update()
     {
         
     }
 
+    private void OnEnablePlayer()
+    {
+        _controls.Player.Enable();
+    }
+
+    private void OnDisablePlayer()
+    {
+        _controls.Player.Disable();
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        movement = context.ReadValue<Vector3>();
     }
 
     public void OnInteract(InputAction.CallbackContext context)
@@ -28,16 +59,21 @@ public class PlayerController : MonoBehaviour, Controls.IPlayerActions
 
     public void OnCrouch(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        PlayerCrouchAction?.Invoke();
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        PlayerJumpAction?.Invoke();
     }
 
     public void OnSprint(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        PlayerSprintAction?.Invoke();
+    }
+
+    public void OnMask(InputAction.CallbackContext context)
+    {
+        PlayerMaskAction?.Invoke(context.ReadValue<float>());
     }
 }
