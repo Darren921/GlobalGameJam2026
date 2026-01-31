@@ -32,6 +32,11 @@ public class PlayerController : MonoBehaviour, Controls.IPlayerActions
         OnEnablePlayer();
     }
 
+    private void OnDisable()
+    {
+        OnDisablePlayer();
+    }
+
     void Update()
     {
         
@@ -74,6 +79,7 @@ public class PlayerController : MonoBehaviour, Controls.IPlayerActions
 
     public void OnMask(InputAction.CallbackContext context)
     {
+        Debug.Log("OnMask");
         PlayerMaskAction?.Invoke(context.ReadValue<float>());
     }
 }
