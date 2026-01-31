@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
     
     private void Update()
     {
-//        print(player.Rb.linearVelocity);
+        print(player.Rb.linearVelocity);
     }
 
     private void FixedUpdate()
