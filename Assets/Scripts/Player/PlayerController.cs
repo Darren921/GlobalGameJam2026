@@ -54,9 +54,12 @@ public class PlayerController : MonoBehaviour, Controls.IPlayerActions
         
     }
 
-    private void OnCollisionStay(Collision other)
+    private void OnCollisionEnter(Collision other)
     {
-
+        if (other.gameObject.CompareTag("VOID"))
+        {
+            PlayerDeathAction?.Invoke();
+        }
     }
 
 
