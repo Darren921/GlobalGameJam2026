@@ -22,11 +22,13 @@ public class Turret : MonoBehaviour
     private Vector3 hitPos;
     private bool shot;
     private bool OnCD;
+    AudioSource audioSource;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         curChargeTime = chargeTime;
         target = GameObject.FindGameObjectWithTag("Player").transform;
         player = target.GetComponent<PlayerController>();
@@ -92,13 +94,13 @@ public class Turret : MonoBehaviour
             var targetDirection = Vector3.RotateTowards(transform.forward, targetDir, TurnSpeed * Time.deltaTime, 0.0f);
             transform.rotation = Quaternion.LookRotation(targetDirection);
             StartCoroutine( prepTurret());
+            if(!audioSource.isPlaying)audioSource.PlayOneShot(audioSource.clip);
+
         }
         else
         {
             StopCoroutine(prepTurret());
         }
-        
-     
     }
 
     private IEnumerator prepTurret()
