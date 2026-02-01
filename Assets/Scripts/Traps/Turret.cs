@@ -64,7 +64,10 @@ public class Turret : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
+    
+    // Credit goes to https://github.com/Comp3interactive/FieldOfView/blob/main/FieldOfViewEditor.cs
+    
+    /*private void OnDrawGizmos()
     {
         Vector3 viewAngle01 = DirectionFromAngle(transform.eulerAngles.y, -FOV / 2);
         Vector3 viewAngle02 = DirectionFromAngle(transform.eulerAngles.y, FOV / 2);
@@ -79,13 +82,14 @@ public class Turret : MonoBehaviour
             Handles.DrawLine(transform.position, target.transform.position);
         }
     }
+    */
 
-    private Vector3 DirectionFromAngle(float eulerY, float angleInDegrees)
-    {
-        angleInDegrees += eulerY;
-
-        return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
-    }
+    // private Vector3 DirectionFromAngle(float eulerY, float angleInDegrees)
+    // {
+    //     angleInDegrees += eulerY;
+    //
+    //     return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+    // }
 
     void Update()
     {
