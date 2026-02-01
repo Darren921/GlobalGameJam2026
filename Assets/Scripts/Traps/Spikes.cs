@@ -29,7 +29,8 @@ public class Spikes : MonoBehaviour
             }
           
             SameSide = false;
-            if(!SameSide) Destroy(other.gameObject);
+            if(!SameSide)   PlayerController.PlayerDeathAction?.Invoke();
+            
             
         }
         

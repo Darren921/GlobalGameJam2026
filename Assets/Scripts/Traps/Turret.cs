@@ -121,7 +121,7 @@ public class Turret : MonoBehaviour
             {
                 if (hit.collider.gameObject.CompareTag("Player"))
                 {
-                    Destroy(hit.collider.gameObject);
+                   PlayerController.PlayerDeathAction?.Invoke();
                 }
             }
 

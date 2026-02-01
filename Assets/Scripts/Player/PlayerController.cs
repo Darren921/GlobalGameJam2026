@@ -1,18 +1,20 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour, Controls.IPlayerActions
 {
     public Vector3 movement { get; private set; }
+    [SerializeField]internal Transform cameraTransform;
     public Rigidbody Rb { get; private set; }
     private Controls _controls;
     internal PlayerMovement _playerMovement;
     public static Action PlayerJumpAction; 
     public static Action PlayerSprintAction;
     public static Action PlayerCrouchAction;
-
     public static Action<float> PlayerMaskAction;
+    public static Action PlayerDeathAction;
 
     private void Awake()
     {
@@ -31,6 +33,13 @@ public class PlayerController : MonoBehaviour, Controls.IPlayerActions
     {
         Rb = GetComponent<Rigidbody>();
         OnEnablePlayer();
+        PlayerDeathAction += OnDeath;
+    }
+
+    private void OnDeath()
+    {
+        gameObject.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private void OnDisable()
@@ -43,7 +52,11 @@ public class PlayerController : MonoBehaviour, Controls.IPlayerActions
         
     }
 
- 
+    private void OnCollisionStay(Collision other)
+    {
+
+    }
+
 
     private void OnEnablePlayer()
     {

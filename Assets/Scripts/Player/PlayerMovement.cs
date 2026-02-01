@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     
     internal PlayerController player;
     [SerializeField] private CinemachineCamera VirtualCamera;
-    private CinemachineInputAxisController CinemachineInputAxisController;
+     CinemachineInputAxisController CinemachineInputAxisController;
     private Camera Camera;
 
     [Header("Moving")] 
@@ -109,7 +109,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyVelocity()
     {
-        player.Rb.linearVelocity = !isSprinting ? new Vector3(MoveDir.normalized.x * MoveSpeed, player.Rb.linearVelocity.y, MoveDir.normalized.z * MoveSpeed) :  new Vector3(MoveDir.normalized.x * runSpeed, player.Rb.linearVelocity.y, MoveDir.normalized.z * runSpeed) ;
+        player.Rb.linearVelocity = !isSprinting ? new Vector3(MoveDir.normalized.x * MoveSpeed, player.Rb.linearVelocity.y, MoveDir.normalized.z * MoveSpeed) : new Vector3(MoveDir.normalized.x * runSpeed, player.Rb.linearVelocity.y, MoveDir.normalized.z * runSpeed);
+       
     }
 
     private void SetMoveDir(Vector3 newDir)

@@ -3670,7 +3670,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.950142, y: 1.9813253, z: 3.4848554}
+  m_LocalPosition: {x: 11.950144, y: 2.52, z: 3.4848566}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16698,7 +16698,7 @@ GameObject:
   - component: {fileID: 753973291}
   m_Layer: 0
   m_Name: Front Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20777,7 +20777,7 @@ GameObject:
   - component: {fileID: 957535342}
   m_Layer: 0
   m_Name: Left Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25366,7 +25366,7 @@ GameObject:
   - component: {fileID: 1185414879}
   m_Layer: 0
   m_Name: Ceiling
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26378,7 +26378,7 @@ GameObject:
   - component: {fileID: 1384428372}
   m_Layer: 0
   m_Name: Right Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26874,7 +26874,7 @@ Transform:
   m_GameObject: {fileID: 1437038094}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.950142, y: 1.9813253, z: 3.4848554}
+  m_LocalPosition: {x: 11.950144, y: 2.52, z: 3.4848566}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -34726,7 +34726,7 @@ GameObject:
   - component: {fileID: 1816240269}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39251,7 +39251,7 @@ GameObject:
   - component: {fileID: 1979858345}
   m_Layer: 0
   m_Name: Back Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39948,7 +39948,7 @@ Transform:
   m_GameObject: {fileID: 2070952676}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.800142, y: 1.1113254, z: 3.084855}
+  m_LocalPosition: {x: 11.800142, y: 1.65, z: 3.084855}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -39963,7 +39963,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2070952676}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a42a9b6967a73b2499cf72c3a337d734, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -40044,6 +40044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2c9e8533836ee449846cb30059deb28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 0}
 --- !u!114 &2070952682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40057,7 +40058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VirtualCamera: {fileID: 1437038098}
-  MoveSpeed: 6
+  <MoveSpeed>k__BackingField: 7
   runSpeed: 10
   JumpForce: 5
 --- !u!54 &2070952683
@@ -40084,9 +40085,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
+  m_Interpolate: 2
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!43 &2096565540
 Mesh:
   m_ObjectHideFlags: 0
