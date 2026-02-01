@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
       //  print(player.Rb.linearVelocity);
-      print(player.transform.localRotation.y);
+//      print(player.transform.localRotation.y);
 
     }
 

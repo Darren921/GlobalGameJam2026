@@ -37,14 +37,16 @@ public class PlayerController : MonoBehaviour, Controls.IPlayerActions
     }
 
     private void OnDeath()
-    {
+    { 
         gameObject.SetActive(false);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         OnDisablePlayer();
+        PlayerDeathAction -= OnDeath;
+
     }
 
     void Update()

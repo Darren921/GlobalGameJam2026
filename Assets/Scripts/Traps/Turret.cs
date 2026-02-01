@@ -57,7 +57,7 @@ public class Turret : MonoBehaviour
         }
         else
         {
-            print("Player not spotted ");
+//            print("Player not spotted ");
             canSeePlayer = false;
         }
     }

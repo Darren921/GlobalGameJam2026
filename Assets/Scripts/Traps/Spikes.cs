@@ -15,13 +15,13 @@ public class Spikes : MonoBehaviour
         {
             var player = other.gameObject.GetComponent<PlayerController>();
             var playerMask = other.gameObject.GetComponentInChildren<Mask>();
-            if (player.transform.localRotation.y <= 0.87 && playerMask.leftProt.gameObject.activeInHierarchy)
+            if (player.transform.localRotation.y <= 0.87 && playerMask.leftGroup.MaskObj.gameObject.activeInHierarchy)
             {
                 SameSide = true;
                 print("same side left");
                 return;
             }
-            if (player.transform.localRotation.y >= 0.87 && playerMask.rightProt.gameObject.activeInHierarchy)
+            if (player.transform.localRotation.y >= 0.87 && playerMask.rightGroup.MaskObj.gameObject.activeInHierarchy)
             {
                 SameSide = true;
                 print("same side right");
