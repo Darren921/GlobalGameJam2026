@@ -14,6 +14,7 @@ public class Goal : MonoBehaviour
           PlayerPrefs.SetInt("SceneLoaded", 0);
           if (SceneManager.GetActiveScene().buildIndex == 3)
           {
+              Cursor.lockState = CursorLockMode.None;
               SceneManager.LoadScene("Win");
               return;
           }
