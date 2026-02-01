@@ -14,7 +14,7 @@ public class Goal : MonoBehaviour
           PlayerPrefs.SetInt("SceneLoaded", 0);
           if (SceneManager.GetActiveScene().buildIndex == 3)
           {
-              WinScreen.gameObject.SetActive(true);
+              SceneManager.LoadScene("Win");
               return;
           }
 
