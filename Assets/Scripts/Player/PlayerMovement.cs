@@ -10,8 +10,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Classes")] 
     
     internal PlayerController player;
-    [SerializeField] private CinemachineCamera VirtualCamera;
-     CinemachineInputAxisController CinemachineInputAxisController;
+    [SerializeField] internal CinemachineCamera VirtualCamera;
+     internal CinemachineInputAxisController CinemachineInputAxisController;
     private Camera Camera;
 
     [Header("Moving")] 
@@ -32,10 +32,17 @@ public class PlayerMovement : MonoBehaviour
     private bool isJumping;
     private bool isCrouched;
 
+    private void Awake()
+    {
+        player = GetComponent<PlayerController>();
+        CinemachineInputAxisController = VirtualCamera.GetComponent<CinemachineInputAxisController>();
+        Camera = Camera.main;
+        
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GetComponents();
         PlayerController.PlayerJumpAction += Jump;
         PlayerController.PlayerSprintAction += Sprint;
         PlayerController.PlayerCrouchAction += Crouch;
@@ -102,9 +109,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void GetComponents()
     {
-        player = GetComponent<PlayerController>();
-        CinemachineInputAxisController = VirtualCamera.GetComponent<CinemachineInputAxisController>();
-        Camera = Camera.main;
+      
     }
 
     private void ApplyVelocity()

@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour, Controls.IPlayerActions
     void Start()
     {
         Rb = GetComponent<Rigidbody>();
+        _playerMovement = GetComponent<PlayerMovement>();
         OnEnablePlayer();
         PlayerDeathAction += OnDeath;
     }
@@ -71,6 +72,17 @@ public class PlayerController : MonoBehaviour, Controls.IPlayerActions
     private void OnDisablePlayer()
     {
         _controls.Player.Disable();
+    }
+
+    public void PanningEnabled()
+    {
+        _playerMovement.CinemachineInputAxisController.enabled = true;
+
+    }
+
+    public void PanningDisabled()
+    {
+        _playerMovement.CinemachineInputAxisController.enabled = false;
     }
 
     public void OnMove(InputAction.CallbackContext context)
