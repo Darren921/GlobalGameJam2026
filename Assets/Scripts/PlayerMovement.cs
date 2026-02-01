@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Moving")] 
     
     private Vector3 MoveDir;
-    [SerializeField] private float MoveSpeed ;
+    [field : SerializeField] public float MoveSpeed {get; private set;} 
     private Vector3 SmoothedMoveDir;
     private Vector3 SmoothedMoveVelocity;
     
@@ -58,7 +58,9 @@ public class PlayerMovement : MonoBehaviour
     
     private void Update()
     {
-        print(player.Rb.linearVelocity);
+      //  print(player.Rb.linearVelocity);
+      print(player.transform.localRotation.y);
+
     }
 
     private void FixedUpdate()

@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ground
+  - Mask
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Dectection
   - Water
   - UI
   - 

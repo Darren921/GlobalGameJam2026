@@ -4,8 +4,8 @@ public class Mask : MonoBehaviour
 {
     private PlayerController _playerController;
     
-    [SerializeField] private GameObject leftProt;
-    [SerializeField] private GameObject rightProt;
+    [SerializeField] internal GameObject leftProt;
+    [SerializeField] internal GameObject rightProt;
 
     private int LastVal;
     void Start()

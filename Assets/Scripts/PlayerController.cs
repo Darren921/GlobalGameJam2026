@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour, Controls.IPlayerActions
     public Vector3 movement { get; private set; }
     public Rigidbody Rb { get; private set; }
     private Controls _controls;
+    internal PlayerMovement _playerMovement;
     public static Action PlayerJumpAction; 
     public static Action PlayerSprintAction;
     public static Action PlayerCrouchAction;
@@ -41,6 +42,8 @@ public class PlayerController : MonoBehaviour, Controls.IPlayerActions
     {
         
     }
+
+ 
 
     private void OnEnablePlayer()
     {
